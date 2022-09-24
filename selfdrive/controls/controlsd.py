@@ -612,13 +612,21 @@ class Controls:
     # Update VehicleModel
     params = self.sm['liveParameters']
     x = max(params.stiffnessFactor, 0.1)
-    if self.live_sr:
-      sr = max(params.steerRatio, 0.1)
-      sr = min(sr, self.steerRatio_Max)
-      if self.live_sr_percent != 0:
-        sr = sr * (1+(0.01*self.live_sr_percent))
+
+    if Params().get_bool("UseNpilotManager"):
+      if ntune_common_enabled('useLiveSteerRatio'):
+        sr = max(params.steerRatio, 0.1)
+        sr = sr - (sr * ntune_common_get('steerRatioScale')) # steerRatioScale value update
+      else:
+        sr = max(ntune_common_get('steerRatio'), 0.1)
     else:
-     sr = max(self.new_steerRatio, 0.1)
+      if self.live_sr:
+        sr = max(params.steerRatio, 0.1)
+        sr = min(sr, self.steerRatio_Max)
+        if self.live_sr_percent != 0:
+          sr = sr * (1+(0.01*self.live_sr_percent))
+      else:
+        sr = max(self.new_steerRatio, 0.1)
 
     self.VM.update_params(x, sr)
 
