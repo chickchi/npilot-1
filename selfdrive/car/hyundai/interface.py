@@ -78,8 +78,8 @@ class CarInterface(CarInterfaceBase):
 
     ret.steerRatio = 16.5
 
-    ret.steerActuatorDelay = 0.1  # Default delay
-    ret.steerLimitTimer = 0.4 # Default
+    ret.steerActuatorDelay = 0.2  # Default delay 0.1
+    ret.steerLimitTimer = 0.25 # Default 0.4
 
     params = Params()
     if params.get_bool("UseNpilotManager"):
@@ -156,12 +156,12 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 4497. * CV.LB_TO_KG
       ret.wheelbase = 2.804
       ret.centerToFront = ret.wheelbase * 0.4
-      ret.steerRatio = 13.27
+      ret.steerRatio = 13.27 * 1.15
     elif candidate == CAR.SONATA_LF_TURBO:
       ret.mass = 1590. + STD_CARGO_KG
       ret.wheelbase = 2.805
       tire_stiffness_factor = 0.65
-      ret.steerRatio = 13.27
+      ret.steerRatio = 13.27 * 1.15
       ret.centerToFront = ret.wheelbase * 0.4
     elif candidate == CAR.PALISADE:
       ret.mass = 1999. + STD_CARGO_KG
