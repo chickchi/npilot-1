@@ -163,12 +163,12 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 4497. * CV.LB_TO_KG
       ret.wheelbase = 2.804
       ret.centerToFront = ret.wheelbase * 0.4
-      ret.steerRatio = 13.27
+      ret.steerRatio = 13.27 * 1.15
     elif candidate == CAR.SONATA_LF_TURBO:
       ret.mass = 1590. + STD_CARGO_KG
       ret.wheelbase = 2.805
       tire_stiffness_factor = 0.65
-      ret.steerRatio = 13.27
+      ret.steerRatio = 13.27 * 1.15
       ret.centerToFront = ret.wheelbase * 0.4
     elif candidate == CAR.PALISADE:
       ret.mass = 1999. + STD_CARGO_KG
