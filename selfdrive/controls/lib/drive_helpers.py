@@ -22,6 +22,7 @@ CAR_ROTATION_RADIUS = 0.0
 
 # EU guidelines
 MAX_LATERAL_JERK = 20.0
+#MAX_LATERAL_JERK = 10.0 #neokii
 
 ButtonType = car.CarState.ButtonEvent.Type
 CRUISE_LONG_PRESS = 50
